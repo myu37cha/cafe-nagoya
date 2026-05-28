@@ -1,0 +1,411 @@
+/* ===== リセット & ベース ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #fdf8f3;
+  color: #5a3e2b;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== ヘッダー ===== */
+header {
+  background: linear-gradient(135deg, #fde8d8 0%, #fce4ec 100%);
+  border-bottom: 2px dashed #f4b8a0;
+  padding: 32px 20px 24px;
+  text-align: center;
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.header-icon {
+  font-size: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #b5533c;
+  letter-spacing: 0.05em;
+}
+
+.header-sub {
+  font-size: 0.9rem;
+  color: #c47a5a;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* ===== ナビゲーション ===== */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.nav-btn {
+  background: #fff;
+  border: 2px solid #f4b8a0;
+  color: #b5533c;
+  padding: 8px 24px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: #f4b8a0;
+  color: #fff;
+  border-color: #f4b8a0;
+}
+
+/* ===== メイン ===== */
+main {
+  flex: 1;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* ===== カフェグリッド ===== */
+.cafe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+/* ===== カフェカード ===== */
+.cafe-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(180, 120, 90, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.cafe-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(180, 120, 90, 0.18);
+}
+
+/* カード画像 */
+.cafe-img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+/* お気に入りボタン */
+.fav-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, background 0.15s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.fav-btn:hover {
+  transform: scale(1.15);
+}
+
+.fav-btn.active {
+  background: #fce4ec;
+}
+
+/* カード本文 */
+.cafe-body {
+  padding: 16px 18px 20px;
+}
+
+.cafe-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #b5533c;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cafe-info {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cafe-info li {
+  font-size: 0.85rem;
+  color: #7a5c4a;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.cafe-info .label {
+  background: #fde8d8;
+  color: #b5533c;
+  border-radius: 999px;
+  padding: 1px 10px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ===== 空メッセージ ===== */
+.empty-msg {
+  text-align: center;
+  padding: 60px 20px;
+  color: #c47a5a;
+}
+
+.empty-msg span {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.empty-msg p {
+  font-size: 1rem;
+}
+
+/* ===== フッター ===== */
+footer {
+  background: linear-gradient(135deg, #fce4ec 0%, #fde8d8 100%);
+  border-top: 2px dashed #f4b8a0;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+  color: #c47a5a;
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .cafe-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== 並び替えバー ===== */
+.sort-bar {
+  background: #fff8f4;
+  border-bottom: 1px solid #f4d5c5;
+  padding: 10px 20px;
+}
+
+.sort-bar-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: #b5533c;
+}
+
+.sort-bar-inner label {
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+#sort-select {
+  border: 2px solid #f4b8a0;
+  border-radius: 999px;
+  padding: 5px 16px;
+  font-size: 0.85rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #b5533c;
+  background: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#sort-select:focus {
+  border-color: #e07a5f;
+}
+
+/* ===== カードリンク ===== */
+.card-link {
+  display: block;
+  text-decoration: none;
+}
+
+.card-link-body {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link-body:hover .cafe-name {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ===== 詳細ページ ===== */
+.detail-page main {
+  max-width: 720px;
+}
+
+.detail-card {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(180, 120, 90, 0.13);
+}
+
+.detail-img-wrap {
+  position: relative;
+}
+
+.detail-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.detail-fav {
+  width: 48px;
+  height: 48px;
+  font-size: 1.4rem;
+}
+
+.detail-body {
+  padding: 28px 32px 36px;
+}
+
+.detail-name {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #b5533c;
+  margin-bottom: 14px;
+}
+
+.detail-desc {
+  font-size: 0.95rem;
+  color: #7a5c4a;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #f4d5c5;
+}
+
+.detail-info {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.detail-info li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.95rem;
+  color: #5a3e2b;
+}
+
+.detail-info .label {
+  background: #fde8d8;
+  color: #b5533c;
+  border-radius: 999px;
+  padding: 3px 14px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .detail-img {
+    height: 220px;
+  }
+
+  .detail-body {
+    padding: 20px 18px 28px;
+  }
+
+  .detail-name {
+    font-size: 1.3rem;
+  }
+}
+
+/* ===== 行ったボタン ===== */
+.card-footer {
+  padding: 0 18px 16px;
+}
+
+.visited-btn {
+  background: #f9f0eb;
+  border: 2px solid #f9f0eb;
+  border-radius: 999px;
+  font-size: 1rem;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.visited-btn:hover {
+  transform: scale(1.15);
+  background: #f4d5c5;
+  border-color: #f4d5c5;
+}
+
+.visited-btn.active {
+  background: #f9f0eb;
+  border-color: #f9f0eb;
+}
+
+.visited-btn.active:hover {
+  background: #f4d5c5;
+  border-color: #f4d5c5;
+}
+
+/* ===== ナビ折り返し対応 ===== */
+nav {
+  flex-wrap: wrap;
+}
