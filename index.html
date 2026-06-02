@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>☕ 名古屋カフェまとめ</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="header-inner">
+      <div class="header-title">
+        <span class="header-icon">🍰</span>
+        <h1>名古屋カフェまとめ</h1>
+        <span class="header-icon">🍞</span>
+      </div>
+      <p class="header-sub">名古屋のすてきなカフェを集めました</p>
+      <nav>
+        <button class="nav-btn active" id="btn-all" onclick="showAll()">すべて</button>
+        <button class="nav-btn" id="btn-fav" onclick="showFavorites()">❤️ お気に入り</button>
+        <button class="nav-btn" id="btn-visited" onclick="showVisited()">✅</button>
+        <button class="nav-btn" id="btn-notvisited" onclick="showNotVisited()">🗺️</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 並び替えバー -->
+  <div class="sort-bar">
+    <div class="sort-bar-inner">
+      <label for="sort-select">🔀 並び替え：</label>
+      <select id="sort-select" onchange="onSortChange()">
+        <option value="newest">登録順（新しい順）</option>
+        <option value="oldest">登録順（古い順）</option>
+        <option value="name">店名順</option>
+        <option value="station">駅名順</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- メインコンテンツ -->
+  <main>
+    <div id="empty-fav" class="empty-msg" style="display:none;">
+      <span id="empty-icon">🍰</span>
+      <p id="empty-text">お気に入りのカフェをハートで登録しよう！</p>
+    </div>
+    <div class="cafe-grid" id="cafe-grid"></div>
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <p>🎂 名古屋カフェまとめ &copy; 2025 &nbsp;|&nbsp; 🍞 Made with love</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
