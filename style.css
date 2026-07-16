@@ -430,3 +430,40 @@ nav {
   border-color: #f4b8a0;
   color: #fff;
 }
+
+/* ===== メモ欄 ===== */
+.memo-section {
+  margin-top: 24px;
+}
+
+.memo-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #b5533c;
+  margin-bottom: 8px;
+}
+
+.memo-textarea {
+  width: 100%;
+  min-height: 120px;
+  border: 2px solid #f4d5c5;
+  border-radius: 16px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #5a3e2b;
+  background: #fff8f4;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+  line-height: 1.7;
+}
+
+.memo-textarea:focus {
+  border-color: #f4b8a0;
+}
+
+.memo-textarea::placeholder {
+  color: #d4a898;
+}
