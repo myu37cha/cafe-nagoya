@@ -52,6 +52,15 @@
         <a class="map-btn" href="${cafe.mapUrl}" target="_blank" rel="noopener noreferrer">
           📍 Googleマップで見る
         </a>
+        <div class="memo-section">
+          <label class="memo-label" for="memo-input">📝 メモ</label>
+          <textarea
+            id="memo-input"
+            class="memo-textarea"
+            placeholder="感想や次回行きたいメニューなど自由に書いてね！"
+            oninput="saveMemo(${cafe.id}, this.value)"
+          >${getMemo(cafe.id)}</textarea>
+        </div>
       </div>
     </div>
   `;
