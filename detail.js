@@ -76,3 +76,15 @@ function detailToggleFav(id) {
     btn.classList.toggle('active', isFav);
   }
 }
+
+// ===== メモ管理 =====
+function getMemo(id) {
+  const memos = JSON.parse(localStorage.getItem('nagoya-cafe-memos') || '{}');
+  return memos[id] || '';
+}
+
+function saveMemo(id, value) {
+  const memos = JSON.parse(localStorage.getItem('nagoya-cafe-memos') || '{}');
+  memos[id] = value;
+  localStorage.setItem('nagoya-cafe-memos', JSON.stringify(memos));
+}
